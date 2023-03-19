@@ -39,6 +39,7 @@ const Home = (params: { session: any; profile: any; profiles: any; }) => {
         <>
 
           <HomeContainer data={data} />
+          <Link href='/new' className='fixed right-8 bottom-20 bg-[#25b05b33] text-white flex justify-center items-center w-16 h-16 rounded-full header_div'><BiSend size={34}/></Link>
 
         </>
       )}
@@ -55,7 +56,7 @@ const Home = (params: { session: any; profile: any; profiles: any; }) => {
             //TODO move back to verified user when online--->;
           }
 
-          <Link href='/new' className='fixed right-8 bottom-20 bg-[#25b05b33] text-white flex justify-center items-center w-16 h-16 rounded-full header_div'><BiSend size={34}/></Link>
+          
          
           <HomeContainer data={data} />
         </>
