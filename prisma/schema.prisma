@@ -79,17 +79,27 @@ model Post {
   link       String?
   points     String?
   image      String?
-  responses  Response?
-  created_at String
+  responses  Response[]
+  created_at Int
   userId     String @unique @db.ObjectId
   user       User   @relation(fields: [userId], references: [id])
+  saved      String[]
+  tags       String[]
 }
 
 model Response {
   id         String @id @default(auto()) @map("_id") @db.ObjectId
   message    String
+  created_at Int
   userId     String @unique @db.ObjectId
   user       User   @relation(fields: [userId], references: [id])
   postId     String @unique @db.ObjectId
   post       Post   @relation(fields: [postId], references: [id])
 }
+
+model Tags {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  related    Int
+}
+

@@ -14,11 +14,11 @@ export default function HomeContainer(params: { data:any }) {
     const { data } = params
     const router = useRouter()
 
-//console.log(data)
+console.log(data)
     return (
         <div className="w-full">
             {
-                data.posts.map((d: any, i: Key | null | undefined) => (
+                data?.map((d: any, i: Key | null | undefined) => (
                     <PostContainer data={d} key={i} />
                 ))
             }

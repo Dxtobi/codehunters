@@ -22,9 +22,9 @@ import Link from 'next/link';
 
 
 
-const Home = (params: { session: any; profile: any; profiles: any; }) => {
+const Home = (params: { session: any; profile: any; posts: any; }) => {
 
-  const {session, profile, profiles} = params
+  const {session, profile, posts} = params
 
   console.log(params);
   const [auth, setAuth] = useState(false);
@@ -38,7 +38,7 @@ const Home = (params: { session: any; profile: any; profiles: any; }) => {
       {session && (
         <>
 
-          <HomeContainer data={data} />
+          <HomeContainer data={posts} />
           <Link href='/new' className='fixed right-8 bottom-20 bg-[#25b05b33] text-white flex justify-center items-center w-16 h-16 rounded-full header_div'><BiSend size={34}/></Link>
 
         </>
@@ -58,7 +58,7 @@ const Home = (params: { session: any; profile: any; profiles: any; }) => {
 
           
          
-          <HomeContainer data={data} />
+          <HomeContainer data={posts} />
         </>
       )}
     </div>
@@ -80,14 +80,14 @@ export async function getServerSideProps(context: any) {
 
  
   const sessionUser = session?.user as User;
-  const profile = await prisma.profile.findUnique({ where: { id: sessionUser.id } });
-  const profiles = await prisma.profile.findMany({ take:-3 });
+  const profile = await prisma.profile.findUnique({ where: { id: sessionUser.id }  });
+  const posts = await (await prisma.post.findMany({ take: 20, include: {user: true, responses:true} },));
   //console.log(session, profile);
   return {
     props: {
       session,
       profile,
-      profiles
+      posts
     },
   }
 }
