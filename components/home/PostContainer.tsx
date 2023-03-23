@@ -69,7 +69,7 @@ export default function PostContainer(params: { data: any; }) {
                             {data.responses.slice(0,4).map((ph: {
                                 [x: string]: any;
                                 top: any; image: string | undefined;}, i: any) => (
-                                <img className={ph.user.top? " border-2 border-purple-700 w-[30px] h-[30px] rounded-full ml-[-10px]" :"w-[30px] h-[30px] rounded-full ml-[-10px]"} src={ph.user?.image} key={ i} />
+                                <img className={ph?.user?.top? " border-2 border-purple-700 w-[30px] h-[30px] rounded-full ml-[-10px]" :"w-[30px] h-[30px] rounded-full ml-[-10px]"} src={ph?.user?.image} key={ i} />
                             ))}
                         </div>
                     </div>
