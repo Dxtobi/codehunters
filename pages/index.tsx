@@ -70,7 +70,9 @@ const Home = (params: { session: any; profile: any; posts: any; }) => {
 export async function getServerSideProps(context: any) {
   const prisma = new PrismaClient();
   const session = await getSession(context);
-  const posts =  await prisma.post.findMany({ take: 20, include: {user: true, responses:{
+  const posts =  await prisma.post.findMany({orderBy: {
+    id: "desc",
+  }, take: 20, include: {user: true, responses:{
     include: {
       user: true,
     }

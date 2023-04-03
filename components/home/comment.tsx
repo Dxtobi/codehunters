@@ -20,7 +20,7 @@ export default function Comment(params: { data: any; }) {
 
     console.log("data::", data)
     return (
-        <div className={` w-full  ${data.accepted? "bg-[#30343a] box-shadow text-[#ffffff]":"bg-[#ffffff] text-[#30343a]"}  mb-3 p-5 rounded-lg flex items-start gap-2`}>
+        <div className={` w-full  ${data?.accepted? "bg-[#30343a] box-shadow text-[#ffffff]":"bg-[#ffffff] text-[#30343a]"}  mb-3 p-5 rounded-lg flex items-start gap-2`}>
             <Image src={data?.user?.image} alt='' width={50} height={50} className=' rounded-full' />
             <div className="flex flex-col">
                 <div className="w-full break-words break-all font-bold  overflow-w">{data?.user?.name}</div>

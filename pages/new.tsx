@@ -37,7 +37,7 @@ export default function NewPost(params: { user: any; }) {
             const res = await axios(config)
 
             if (res.status === 200) {
-                router.back()
+                router.push('/')
             }
             console.log(res)
             router.back()
