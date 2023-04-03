@@ -93,17 +93,20 @@ export async function getServerSideProps(context: any) {
     //console.log(context)
     const prisma = new PrismaClient();
     const session = await getSession(context);
+    const quarry = context.query.id as string
+    const post = await prisma.post.findUnique({ where: { id: quarry }, include: {user: true, responses:{include: { user: true }}}  });
     if (!session) {
       return {
         props: {
-          session: null
+              session: null,
+              post
         }, 
       }
     }
-  const quarry = context.query.id as string
+  
    
     //const sessionUser = session?.user as User;
-    const post = await prisma.post.findUnique({ where: { id: quarry }, include: {user: true, responses:{include: { user: true }}}  });
+   
    // const posts = await (await prisma.post.findMany({ take: 20, include: {user: true, responses:true} },));
    
     console.log( post);
