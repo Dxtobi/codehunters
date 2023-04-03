@@ -18,7 +18,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
         const post = await prisma.response.create({
             data: {
                 message:comment.trim(),
-                created_at : Date.now(),
+                created_at : `${Date.now()}`,
                 user: { connect: { id: sessionUser?.id } },
                 post:{ connect: { id: req.query.postId as string } },
             }

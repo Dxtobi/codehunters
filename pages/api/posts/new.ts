@@ -8,6 +8,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
     try {
         const {
             title,
+            points,
             message,
             image,
             link,
@@ -26,7 +27,8 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
                 image,
                 link,
                 tags,
-                created_at : Date.now(),
+                created_at: `${Date.now()}`,
+                points:points,
                 user: {connect: {id: sessionUser?.id}}
             }
         });

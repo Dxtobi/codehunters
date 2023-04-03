@@ -79,6 +79,7 @@ export default function NewPost(params: { user: any; }) {
                     <input className="p-3 bg-white rounded-md w-full outline-none mb-2" type='text' onChange={separateStrings} placeholder="tags; separate with comma" />
                     <input className="p-3 bg-white rounded-md w-full outline-none mb-2" type='text' {...register('link', )} placeholder="code repo (optional)" />
                     <input className="p-3 bg-white rounded-md w-full outline-none mb-2" type='text' {...register('image')} placeholder="image url (optional)" />
+                    <input className="p-3 bg-white rounded-md w-full outline-none mb-2" type='number' {...register('points', )} placeholder="solution price (optional)" />
                     <button className="p-3 bg-gray-900 text-white rounded-md w-full outline-none mb-2 mt-4 flex  justify-center items-center" type="submit"><BiSend size={32}/></button>
                 </form>
                 <button onClick={()=>router.back()} className="p-3 bg-gray-700 text-white rounded-md w-full outline-none mb-2 mt-4 flex  justify-center items-center" >Cancel</button>

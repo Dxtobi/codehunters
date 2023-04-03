@@ -6,6 +6,7 @@ import { AiFillGithub, AiOutlineComment } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
 import Link from "next/link";
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } from "react";
+import Moment from 'react-moment';
 
 const active = "w-[40px] h-[40px] rounded-full bg-slate-300 object-cover";
 const normal = "w-[50px] h-[50px] rounded-full object-cover bg-slate-300";
@@ -28,7 +29,9 @@ export default function PostContainer(params: { data: any; }) {
                     </div>
                     <div>
                         <div className="text-lg font-semibold">{data.user.name}</div>
-                        <div className="text-sm font-thin">{ data.date}</div>
+                        <div className="text-sm font-thin">
+                            <Moment fromNow>{ data.created_at}</Moment>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -64,7 +67,7 @@ export default function PostContainer(params: { data: any; }) {
                 <div className="flex justify-between items-baseline">
                     <div className="font-extrabold text-[#25bd5f]">{data.points}</div>
                     <div className="flex items-center gap-4 mt-3 ">
-                        <div>{data.responses.length}+</div>
+                        <div className="flex h-full">{data.responses.length}+</div>
                         <div className="flex">
                             {data.responses.slice(0,4).map((ph: {
                                 [x: string]: any;
