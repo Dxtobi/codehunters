@@ -4,6 +4,12 @@ import {useRouter} from "next/router"
 import OverNav from './overnav';
 import { useEffect, useState } from 'react';
 import Loading from './Loading';
+import Metadata  from 'next';
+import Head from 'next/head';
+export const metadata = {
+  title: "code monger",
+  description: "solve code problems fast"
+};
 
 export default function Layout(params: { [x: string]: any; children: any }) {
 
@@ -27,6 +33,13 @@ export default function Layout(params: { [x: string]: any; children: any }) {
   
   return (
     <div className=''>
+    <Head>
+        <link rel="shortcut icon" href="/static/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
+        <link rel="manifest" href="/static/site.webmanifest" />
+  </Head>
       <Navbar profile={others} />
       
       {loading && <Loading />}
