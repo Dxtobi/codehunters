@@ -33,9 +33,9 @@ export default function Layout(params: { [x: string]: any; children: any }) {
   
   return (
     <div className=''>
-    <head>
+    <Head>
         <link rel="shortcut icon" href="/static/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="https://codehunters.vercel.app/api/og" />
         <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
         <link rel="manifest" href="/static/site.webmanifest" />
@@ -50,7 +50,7 @@ export default function Layout(params: { [x: string]: any; children: any }) {
         <meta property="og:image:type" content="image/png"/>
         <meta property="og:site_name" content="Get help fixing your code, get paid for fixing codes"></meta>
         <meta property="og:image" content="https://codehunters.vercel.app/api/og"/>
-  </head>
+  </Head>
       <Navbar profile={others} />
       
       {loading && <Loading />}
