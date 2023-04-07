@@ -10,13 +10,12 @@ export default function Head() {
         <title>Beast Games</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="tittle" content="CodeMonger"/>
-        <meta property="og:description" content="Get help fixing your code, get paid for fixing codes"></meta>
-        
+        <meta property="og:description" content=" Get help fixing your code, get paid for fixing codes "></meta>
         <meta property="og:image"  content="/static/favicon-16x16.png" />
-        <meta property="og:image:secure_url" content="/static/favicon-32x32.png"/>
+        <meta property="og:image:secure_url" content="/static/favicon-32x32.png" />
         <meta property="og:image:type" content="image/png"/>
-            <meta property="og:site_name" content="ODE FIXERS, CODE MONGERS "></meta>
-            <meta property="og:image" content="https://codehunters.vercel.app/api/og"/>
+        <meta property="og:site_name" content="ODE FIXERS, CODE MONGERS"></meta>
+        <meta property="og:image" content="https://codehunters.vercel.app/api/og"/>
       </head>
     )
   }
