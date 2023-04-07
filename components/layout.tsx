@@ -41,7 +41,7 @@ export default function Layout(params: { [x: string]: any; children: any }) {
         <link rel="manifest" href="/static/site.webmanifest" />
         <title>CM</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta name="tittle" content="Get help fixing your code, get paid for fixing codes"/>
+        <meta name="title" content="Get help fixing your code, get paid for fixing codes"/>
         <meta property="og:description" content="Get help fixing your code, get paid for fixing codes"></meta>
         <meta name="description" content="Get help fixing your code, get paid for fixing codes"></meta>
         
