@@ -9,10 +9,9 @@ export default function Head() {
         <link rel="manifest" href="/static/site.webmanifest" />
         <title>Beast Games</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta name="tittle" content="Get help fixing your code, get paid for fixing codes"/>
+        <meta name="tittle" content="CodeMonger"/>
         <meta property="og:description" content="Get help fixing your code, get paid for fixing codes"></meta>
-        <meta name="description" content="Get help fixing your code, get paid for fixing codes"></meta>
-        <meta name="description" content="Get help fixing your code, get paid for fixing codes" />
+        
         <meta property="og:image"  content="/static/favicon-16x16.png" />
         <meta property="og:image:secure_url" content="/static/favicon-32x32.png"/>
         <meta property="og:image:type" content="image/png"/>
