@@ -47,12 +47,12 @@ export default function Layout(params: { [x: string]: any; children: any }) {
         
         <meta property="og:image:secure_url" content="https://codehunters.vercel.app/api/og"/>
         <meta property="og:image:type" content="image/png"/>
-        <meta property="og:site_name" content="Get help fixing your code, get paid for fixing codes"></meta>
         <meta property="og:image" content="https://codehunters.vercel.app/api/og"/>
 
         <meta property="twitter:image" content="https://codehunters.vercel.app/api/og"/>
-        <meta name="twitter:title" content="CodeMongers, Code Hunters"/>
-        <meta property="twitter:description" content="Get help fixing your code, get paid for fixing codes"></meta>
+        <meta name="twitter:title" content="CodeMongers, Code Hunters" />
+        <meta name="twitter:creator" content="@programmer_dex"></meta>
+        <meta name="twitter:description" content="Get help fixing your code, get paid for fixing codes"></meta>
         <meta property="twitter:image" content="https://codehunters.vercel.app/api/og" />
         <meta property="twitter:card" content="summary_large_image"/>
   </Head>
