@@ -19,12 +19,12 @@ export default async function () {
           backgroundColor: 'white',
         }}
       >
-        <div tw="bg-gray-50 flex">
+        <div tw="bg-gradient-to-tl from-teal-800 via-cyan-900 to-blue-500 flex h-full">
           <div tw="flex flex-col  w-full py-12 px-4 md:items-center justify-center gap-3 p-8">
             <h1 tw="flex flex-col text-4xl font-bold tracking-tight text-gray-900 text-center">
-              <span>Have a code problem?</span>
-              <span tw="text-indigo-600">Find help on CodeMonger.</span>
-              <span tw="text-gray-600">always under construction...</span>
+              <span tw="text-white">Have a code problem?</span>
+              <span tw="text-white">Find help on CodeMonger.</span>
+              <span tw="text-white">always under construction...</span>
             </h1>
             <div tw="mt-8 flex md:mt-0">
               <div tw="flex rounded-md shadow">
