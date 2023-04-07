@@ -51,8 +51,8 @@ export default function Layout(params: { [x: string]: any; children: any }) {
 
         <meta property="twitter:image" content="https://codehunters.vercel.app/api/og"/>
         <meta name="twitter:title" content="CodeMongers, Code Hunters" />
-        <meta name="twitter:creator" content="@programmer_dex"></meta>
-        <meta name="twitter:description" content="Get help fixing your code, get paid for fixing codes"></meta>
+        <meta name="twitter:creator" content="@programmer_dex"/>
+        <meta name="twitter:description" content="Get help fixing your codes or get paid/points for fixing codes"/>
         <meta property="twitter:image" content="https://codehunters.vercel.app/api/og" />
         <meta property="twitter:card" content="summary_large_image"/>
   </Head>
