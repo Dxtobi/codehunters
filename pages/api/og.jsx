@@ -21,11 +21,11 @@ export default async function () {
       >
         <div tw="bg-gray-50 flex">
           <div tw="flex flex-col  w-full py-12 px-4 md:items-center justify-center gap-3 p-8">
-            <h2 tw="flex flex-col text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            <h1 tw="flex flex-col text-4xl font-bold tracking-tight text-gray-900 text-center">
               <span>Have a code problem?</span>
               <span tw="text-indigo-600">Find help on CodeMonger.</span>
-              <span tw="text-purple-600">always under construction...</span>
-            </h2>
+              <span tw="text-gray-600">always under construction...</span>
+            </h1>
             <div tw="mt-8 flex md:mt-0">
               <div tw="flex rounded-md shadow">
                 <a
