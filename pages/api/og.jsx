@@ -22,11 +22,11 @@ export default async function () {
         <div tw="bg-indigo-900 flex h-full">
           <div tw="flex flex-col  w-full py-12 px-4 md:items-center justify-center gap-3 p-8">
             <div tw="flex flex-col  font-bold tracking-tight text-gray-900 text-center">
-              <div tw="text-white text-5xl text-center">Have a code problem?</div>
-              <div tw="text-white text-4xl text-center">Find help on CodeMonger.</div>
-              <div tw="text-white text-4xl text-center">always under construction...</div>
+              <div tw="text-white text-8xl text-center">Have a code problem?</div>
+              <div tw="text-white text-6xl text-center">Find help on CodeMonger.</div>
+              <div tw="text-white text-5xl text-center">always under construction...</div>
             </div>
-            <div tw="mt-8 flex md:mt-0">
+            <div tw="mt-8 flex">
               <div tw="flex rounded-md shadow">
                 <a
                   href="#"
