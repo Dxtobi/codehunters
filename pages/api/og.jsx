@@ -20,7 +20,7 @@ export default async function () {
         }}
       >
         <div tw="bg-indigo-900 flex h-full">
-          <div tw="flex flex-col  w-full py-12 px-4 justify-start gap-3 p-8">
+          <div tw="flex flex-col  w-full py-12 px-4 justify-between gap-3 p-8">
             <div tw="flex flex-col  font-bold tracking-tight text-gray-900 text-center">
               <div tw="text-white text-8xl text-center">Have a code problem?</div>
               <div tw="text-white text-6xl text-center">Find help on CodeMonger.</div>
@@ -30,7 +30,7 @@ export default async function () {
               <div tw="flex rounded-md shadow">
                 <a
                   href="#"
-                  tw="flex items-center justify-center rounded-md border border-transparent bg-indigo-400 px-5 py-3 text-base font-medium text-white"
+                  tw="flex items-center justify-center rounded-md border border-transparent bg-indigo-400 px-5 py-3 text-base font-medium text-white text-6xl"
                 >
                   made with love @programmer_dex
                 </a>
