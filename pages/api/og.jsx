@@ -20,7 +20,7 @@ export default async function () {
         }}
       >
         <div tw="bg-indigo-900 flex h-full">
-          <div tw="flex flex-col  w-full py-12 px-4 md:items-center justify-center gap-3 p-8">
+          <div tw="flex flex-col  w-full py-12 px-4 justify-start gap-3 p-8">
             <div tw="flex flex-col  font-bold tracking-tight text-gray-900 text-center">
               <div tw="text-white text-8xl text-center">Have a code problem?</div>
               <div tw="text-white text-6xl text-center">Find help on CodeMonger.</div>
