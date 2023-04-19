@@ -55,10 +55,6 @@ export default function Post(params: { post: any; session:any }) {
         console.log()
     }
 
-
-
- 
-
     const   {post, session} = params
     console.log(post)
 
@@ -75,7 +71,7 @@ export default function Post(params: { post: any; session:any }) {
                     ))
                 }
             </div>
-            { inputMenu?<div className="  fixed rounded-xl bottom-2 w-[90%] bg-[#000000a0] p-1   ">
+            { inputMenu?<div className="  fixed rounded-xl bottom-2 w-[90%] bg-[#000000a0] p-1  mx-auto left-1 ">
                 <div className=" relative">
                     <div className="header_div h-full absolute w-full -z-10"></div>
                 <textarea className={`w-full h-20 outline-none bg-transparent p-1 text-white`} value={comment} onChange={(e)=>setComment(e.target.value)} />

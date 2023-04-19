@@ -60,7 +60,7 @@ export default function Layout(params: { [x: string]: any; children: any }) {
       
       {loading && <Loading />}
 
-      <main className='w-full md:w-[60%] lg:w-[50%] m-auto mt-16 p-5 '>{children}</main>
+      <main className='w-full md:w-[60%] lg:w-[50%] m-auto mt-16 p-2 '>{children}</main>
 
       {!isInPath && <OverNav />}
       
