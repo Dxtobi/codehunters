@@ -6,20 +6,13 @@ import { BsClipboardPlus, BsDownload, BsFillSunFill } from 'react-icons/bs';
 import { elementToPNG } from '../../lib/utils';
 
 
-const codeString = `export default function SyntexHilight({code}) {
-    const codeString = '(num) => num + 1';
-    return (
-      <SyntaxHighlighter language="javascript" style={docco}>
-        <div>
-        </div>
-      </SyntaxHighlighter>
-    );
-  };`;
+const codeString = "//export async function elementToPNG(element: HTMLElement): Promise<void> {}";
   
 
 export default function SyntexHilight(code: any) {
-    const highlightedCode = hljs.highlight(codeString, { language: 'typescript' }).value
-    const [theme, setTheme] = useState(true)
+
+    const highlightedCode = hljs.highlight(code.code, { language: 'typescript' }).value
+    const [theme, setTheme] = useState(false)
 
 
     const [copied, setCopied] = useState(false);
@@ -67,8 +60,8 @@ export default function SyntexHilight(code: any) {
         <div ref={ref}>
             <div className='flex justify-between items-center my-2 gap-2'>
                 <button onClick={()=>setTheme(!theme)} className='flex items-center justify-center font-2xl p-2 w-full bg-[#081822] text-white rounded-lg'><BsFillSunFill /></button>
-                <button className={`flex items-center justify-center font-2xl p-2 w-full ${copied?"bg-[#00c50c]":"bg-[#081822]"}  text-white rounded-lg`} onClick={()=>copyToClipboard(codeString)}><BsClipboardPlus /></button>
-                <button onClick={handleConvertToPNG} className='flex items-center justify-center font-2xl p-2 w-full bg-[#081822] text-white rounded-lg'><BsDownload /></button>
+                <button className={`flex items-center justify-center font-2xl p-2 w-full ${copied?"bg-[#00c50c]":"bg-[#081822]"}  text-white rounded-lg`} onClick={()=>copyToClipboard(code.code)}><BsClipboardPlus /></button>
+    
             </div>
             <pre  className={`overflow-x-scroll ${theme?"bg-[#d4d4d4]":"bg-[#081822]"} rounded-lg p-4 w-full`}>
                 <code >

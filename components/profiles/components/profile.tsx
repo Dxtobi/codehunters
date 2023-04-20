@@ -18,25 +18,13 @@ console.log(profile)
                   <div>{user.email}</div>
               </div>
               <br />
-              <Link href={`https://twitter.com/{profile.twitter}`} className='flex justify-between items-center w-full bg-white'>
+              <Link href={`https://twitter.com/`} className='flex justify-between items-center w-full bg-white'>
                   <BsTwitter size={30} className='text-green-600' />
                   <div>{profile.twitter}</div>
               </Link>
-              <br />
-              <Link href={profile.slug} className='flex justify-between items-center w-full'>
-                  <GiSpiderWeb size={30} className='text-green-600' />
-                  <div>My Web</div>
-              </Link>
-
-
-              
-              
-      </div>
+        </div>
     </>
   )
 }
-
-
-
 
 export default ProfileItems

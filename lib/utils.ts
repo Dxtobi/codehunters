@@ -3,10 +3,9 @@ import { saveAs } from 'file-saver';
 
 export async function elementToPNG(element: HTMLElement): Promise<void> {
     try {
-
         const height = element.scrollHeight;
         const width = element.scrollWidth;
-      const canvas = await html2canvas(element, {
+        const canvas = await html2canvas(element, {
         height, width
       });
       const blob = await new Promise<Blob | null>((resolve, reject) => {

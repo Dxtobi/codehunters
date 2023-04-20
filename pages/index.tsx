@@ -19,6 +19,7 @@ import { useState } from 'react';
 import Auth from '../components/auth';
 import { BiSend } from 'react-icons/bi';
 import Link from 'next/link';
+import { allFeed } from '../lib/helpers';
 
 
 
@@ -68,34 +69,20 @@ const Home = (params: { session: any; profile: any; posts: any; }) => {
 
 
 export async function getServerSideProps(context: any) {
-  const prisma = new PrismaClient();
+ 
   const session = await getSession(context);
-  const posts =  await prisma.post.findMany({orderBy: {
-    id: "desc",
-  }, take: 20, include: {user: true, responses:{
-    include: {
-      user: true,
-    }
-  },} },);
-  if (!session) {
-    return {
-      props: {
-        posts:posts,
-        session: null
-      }, 
-    }
-  }
+  const posts = await allFeed.GET_POST(0)
+  
+
 
  
-  const sessionUser = session?.user as User;
-  const profile = await prisma.profile.findUnique({ where: { id: sessionUser.id }  });
+  
   
   //console.log(session, profile);
   return {
     props: {
-      session,
-      profile,
-      posts
+      session:session?session:null,
+      posts:posts?posts:null
     },
   }
 }

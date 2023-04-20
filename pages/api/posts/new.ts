@@ -1,8 +1,9 @@
-import { PrismaClient } from '@prisma/client';
+
 import { getSession } from 'next-auth/react';
 import { NextApiRequest, NextApiResponse } from 'next/types';
+import { prismaInstance } from '../../../lib/helpers/prismainit';
 
-const prisma = new PrismaClient()
+const prisma = prismaInstance
 
 export default async function (req:NextApiRequest, res:NextApiResponse) {
     try {
@@ -12,7 +13,8 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
             message,
             image,
             link,
-            tags
+            tags,
+            code
         } = req.body
         const session = await getSession({ req });
         if (!session) {
@@ -26,6 +28,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
                 message,
                 image,
                 link,
+                code,
                 tags,
                 created_at: `${Date.now()}`,
                 points:points,

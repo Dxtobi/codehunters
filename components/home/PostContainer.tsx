@@ -50,9 +50,11 @@ export default function PostContainer(params: { data: any; }) {
             <div className="mt-3">
                 <div className={`font-extrabold text-lg   ${!data.closed ? "text-[#30343a]" : "text-[#25bd5f]"}`} >{data.title}</div>
                 <div className="mb-4" ><ReactMarkdown children={data?.message} /></div>
-                <div>
-                    <SyntexHilight code={''} />
-                </div>
+                {
+                   data.code &&  (<div>
+                    <SyntexHilight code={data.code} />
+                </div>)
+               }
                 <div className="flex gap-2">
                     {data.tags.map((e: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined, i: Key | null | undefined) => (
                         <Link href={'/search'} className="capitalize font-bold text-blue-500" key={i} >{e}</Link>
