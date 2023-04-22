@@ -7,7 +7,7 @@ import Comment from "../components/home/comment";
 import { getSession } from "next-auth/react";
 import { BiCommentAdd, BiSend } from "react-icons/bi";
 import { allFeed } from "../lib/helpers";
-import { CL_allFeed } from "./client_helpers";
+import { CL_allFeed } from "../client_helpers";
 import Loading from "../components/LoadingItem";
 import io, { Socket } from "socket.io-client";
 

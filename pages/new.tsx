@@ -6,7 +6,7 @@ import { BiSend } from "react-icons/bi";
 import { useState } from "react";
 import { AiFillDelete, AiOutlineDelete } from "react-icons/ai";
 import Loading from "../components/LoadingItem";
-import { CL_allFeed } from "./client_helpers";
+import { CL_allFeed } from "../client_helpers";
 
 export default function NewPost(params: { user: any; }) {
 
