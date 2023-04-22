@@ -18,9 +18,13 @@ export const _comment = {
 
 export const allFeed = {
     //POST func
-
+    
+    
     //GET func
-        GET_POST:(skip: any)=>feedFunc.getFeeds(skip)
+    GET_POST: (skip: any) => feedFunc.getFeeds(skip),
+    
+    //GET ONE:
+    GET_ONE: (id:string) => feedFunc.getOneFeed(id)
     //EDIT func
 
     //DELETE func

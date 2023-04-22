@@ -1,16 +1,11 @@
-import { PrismaClient } from '@prisma/client';
+
 
 import {
-
-  signIn,
-
-  signOut,
 
   getSession
 
 } from "next-auth/react";
 
-import { data } from '../lib/fakeData';
 
 import HomeContainer from '../components/home/Index';
 

@@ -1,13 +1,12 @@
 
-import axios, {AxiosRequestConfig} from "axios";
+
 import { useForm } from "react-hook-form";
 import {useRouter} from "next/router"
 import { BiSend } from "react-icons/bi";
 import { useState } from "react";
 import { AiFillDelete, AiOutlineDelete } from "react-icons/ai";
-import Loading from "../components/Loading";
-
-
+import Loading from "../components/LoadingItem";
+import { CL_allFeed } from "./client_helpers";
 
 export default function NewPost(params: { user: any; }) {
 
@@ -15,35 +14,13 @@ export default function NewPost(params: { user: any; }) {
     const router = useRouter()
     const [tags, setTags] = useState(Array<string>)
     const [loading, setLoading] = useState(false)
-
     const { register, handleSubmit } = useForm();
     
     const onSubmitForm = async (values: any) => {
-       console.log('called')
-        values.tags = tags
         setLoading(true)
-        try {
-           // values.image = user?.image;
-            //console.log(values);
-            const config: AxiosRequestConfig = {
-                url: "/api/posts/new",
-                data: values,
-                method: "post",
-                headers: {
-                    "Content-Type":"application/json"
-                }
-            };
-
-            const res = await axios(config)
-
-            if (res.status === 200) {
-                router.push('/')
-            }
-            console.log(res)
-            router.back()
-        } catch (error) {
-            console.log(error)
-        }
+        const data = await CL_allFeed.POST_ONE(values, tags)
+        data?.status === 200 && router.replace('/')
+        setLoading(false)
     }
 
     const separateStrings =(e: { target: { value: string; }; }) => {

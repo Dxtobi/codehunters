@@ -1,13 +1,11 @@
 
-import axios, { AxiosRequestConfig } from "axios";
-import { useForm } from "react-hook-form";
 import { useRouter } from "next/router"
 import { AiFillGithub, AiFillHeart, AiOutlineComment } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
 import Link from "next/link";
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } from "react";
 import Moment from 'react-moment';
-import Image from "next/image";
+
 import SyntexHilight from "../cards/SyntexHylighter";
 import ReactMarkdown from 'react-markdown'
 

@@ -3,7 +3,8 @@ import axios, {AxiosRequestConfig} from "axios";
 
 export let commentFuncs = {
     
-    addNewComment: async (values: any, tags:Array<string>) => {
+    addNewComment: async (values: any, tags: Array<string>) => {
+        console.log('hitting comment')
          values.tags = tags
          try {
              const config: AxiosRequestConfig = {

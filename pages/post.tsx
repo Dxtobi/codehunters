@@ -1,72 +1,100 @@
 
-import axios, {AxiosRequestConfig} from "axios";
-import { useForm } from "react-hook-form";
 import {useRouter} from "next/router"
-//import { data } from "../../lib";
-//import PostContainer from "./postContainer";
-import { Key, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import PostContainer from "../components/home/PostContainer";
 import { data } from "../lib/fakeData";
 import Comment from "../components/home/comment";
 import { getSession } from "next-auth/react";
-import { PrismaClient } from "@prisma/client";
 import { BiCommentAdd, BiSend } from "react-icons/bi";
+import { allFeed } from "../lib/helpers";
+import { CL_allFeed } from "./client_helpers";
+import Loading from "../components/LoadingItem";
+import io, { Socket } from "socket.io-client";
 
+
+let socket:Socket;
 
 
 
 export default function Post(params: { post: any; session:any }) {
+    const { post } = params
     
     const router = useRouter();
     const [comment, setComment] = useState('')
     const [inputMenu, setInputMenu] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [comments, setComments ] = useState(post?.responses ?? [])
+    const [input, setInput] = useState('')
+
+    useEffect(() => {
+        socketInitializer();
+       //console.log(comments)
+       
+   }, []);
+
+    const socketInitializer = async (): Promise<void> => {
+        await fetch('/api/socket');
+        
+        socket = io();
+      
+        socket.on('connect', () => {
+            console.log('connected');
+        });
+      
+        socket.on('newIncomingMessage', (msg: string) => {
+            let c = [ msg, ...comments,  ]
+           // console.log(c.length)
+            setLoading(false)
+            setComments(c);
+            //console.log(c)
+        });
+
+        return 
+      };
+    
+    
+     
+
+   
+
 
     
     const cancelInput = () =>{
         setInputMenu(!inputMenu)
+        //setLoading(false)
     }
     const sendComment = async () =>{
+        
         if (comment.trim().length < 1) {
             return
         }
-
-        try {
+        setLoading(true)
+       try {
+        const res = await CL_allFeed.POST_COMMENT(post.id, comment)
+           res?.status == 200 && cancelInput()
            
-              const config: AxiosRequestConfig = {
-                  url: `/api/posts/comments/${post.id}`,
-                  data: {comment:comment.trim()},
-                  method: "post",
-                  headers: {
-                      "Content-Type":"application/json"
-                  }
-              };
-  
-              const res = await axios(config)
-  
-            if (res.status === 200) {
-                console.log(res)
-                cancelInput()
-                  //router.back()
-              }
-          } catch (error) {
-              console.log(error)
-          }
+           socket.emit("createdMessage", res?.data)
+       } catch (error) {
+        console.log(error)
+       }
+        //console.log(res)
+        //router.reload()
 
-        console.log()
     }
 
-    const   {post, session} = params
-    console.log(post)
-
-    const count = [1,0,1]
+    
+    
+   
     return (
         <div className="w-full ">
-           
-           { <PostContainer data={post} />
+            {
+                loading && <Loading/>
+           }
+           { post && <PostContainer data={post} />
             }
             <div>
                 {
-                    post?.responses?.map((e: any, i: Key | null | undefined) => (
+                    comments && comments.reverse().map((e: any, i: Key | null | undefined) => (
                         <Comment data={e} key={i} />
                     ))
                 }
@@ -87,30 +115,15 @@ export default function Post(params: { post: any; session:any }) {
 
 export async function getServerSideProps(context: any) {
     //console.log(context)
-    const prisma = new PrismaClient();
+    
     const session = await getSession(context);
     const quarry = context.query.id as string
-    const post = await prisma.post.findUnique({ where: { id: quarry }, include: {user: true, responses:{include: { user: true }}}  });
-    if (!session) {
-      return {
-        props: {
-              session: null,
-              post
-        }, 
-      }
-    }
-  
-   
-    //const sessionUser = session?.user as User;
-   
-   // const posts = await (await prisma.post.findMany({ take: 20, include: {user: true, responses:true} },));
-   
-    console.log( post);
+    const post = await allFeed.GET_ONE(quarry)
+    
     return {
       props: {
-        session,
-       // profile,
-       post
+        session : session ? session: null,
+        post : post ? post: null
       },
     }
   }

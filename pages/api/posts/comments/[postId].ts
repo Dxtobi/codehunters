@@ -25,7 +25,8 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
             }
         });
     
-        return res.status(200).json(post)
+        const com= await prisma.response.findUnique({ where: { id: post.id }, include: {user: true}  })
+        return res.status(200).json(com)
         
     } catch (error) {
         console.log(error)

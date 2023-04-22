@@ -15,20 +15,12 @@ export let feedFunc = {
         }
     },
 
-    createNewPost: async (values: any, tags:Array<string>) => {
-         values.tags = tags
-         try {
-             const config: AxiosRequestConfig = {
-                 url: "/api/posts/new",
-                 data: values,
-                 method: "post",
-                 headers: {
-                     "Content-Type":"application/json"
-                 }
-             };
-             const res = await axios(config)
-         } catch (error) {
-            
-         }
-     }
+    getOneFeed:async (id: string) => {
+        try {
+            const feeds = await prismaInstance.post.findUnique({ where: { id: id }, include: {user: true, responses:{include: { user: true }}}  });
+            return feeds
+        } catch (error) {
+           console.log(error) 
+        }
+    },
 }

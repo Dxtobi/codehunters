@@ -3,7 +3,7 @@ import Footer from './footer'
 import {useRouter} from "next/router"
 import OverNav from './overnav';
 import { useEffect, useState } from 'react';
-import Loading from './Loading';
+import Loading from './LoadingPage';
 import Metadata  from 'next';
 import Head from 'next/head';
 export const metadata = {
