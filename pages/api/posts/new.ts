@@ -14,7 +14,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
             image,
             link,
             tags,
-            code
+            codes
         } = req.body
         const session = await getSession({ req });
         if (!session) {
@@ -28,7 +28,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
                 message,
                 image,
                 link,
-                code:code,
+                codes_:codes,
                 tags,
                 created_at: `${Date.now()}`,
                 points:points,

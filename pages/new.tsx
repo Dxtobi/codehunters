@@ -45,7 +45,7 @@ export default function NewPost(params: { user: any; }) {
                 <form onSubmit={handleSubmit(onSubmitForm)}>
                     <input className="p-3 bg-white rounded-md w-full outline-none mb-2" type='text'  {...register('title', { required: true })} placeholder="Title" />
                     <textarea className="p-3 bg-white rounded-md w-full outline-none mb-2 h-36"  {...register('message', { required: true })} placeholder="longer text goes here..." />
-                    <textarea className="p-3 bg-white rounded-md w-full outline-none mb-2 h-36"  {...register('code', )} placeholder="dump your code here (optional)" />
+                    <textarea className="p-3 bg-white rounded-md w-full outline-none mb-2 h-36"  {...register('codes', )} placeholder="dump your code here (optional)" />
                     <div className="flex flex-wrap gap-1 my-2">
                     {
                         tags.map((e, i) => (

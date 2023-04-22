@@ -83,7 +83,7 @@ model Post {
   message    String
   link       String?
   points     String?
-  code       String?
+  codes_       String?
 
   image      String?
   responses  Response[]
