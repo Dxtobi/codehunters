@@ -24,7 +24,12 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
         console.log(req.body)
         const post = await prisma.post.create({
             data: {
-                ...req.body,
+                title,
+                message,
+                image,
+                link,
+                codes_,
+                tags,
                 created_at: `${Date.now()}`,
                 points:points,
                 user: {connect: {id: sessionUser?.id}}
