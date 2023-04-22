@@ -46,6 +46,10 @@ model User {
   password      String?
   emailVerified DateTime?
   image         String?
+  occupation String  @default("")
+  bio        String?
+  twitter    String?
+  github    String?
   accounts      Account[]
   sessions      Session[]
   profile       Profile?
@@ -80,7 +84,7 @@ model Post {
   link       String?
   points     String?
   code       String?
-  
+
   image      String?
   responses  Response[]
   created_at String
