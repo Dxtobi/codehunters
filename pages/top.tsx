@@ -1,9 +1,6 @@
 
-import axios, {AxiosRequestConfig} from "axios";
-import { useForm } from "react-hook-form";
-import {useRouter} from "next/router"
-import EditProfile from "../components/EditProfile";
-import { PrismaClient } from '@prisma/client';
+
+import { getSession } from "next-auth/react";
 
 
 
@@ -18,6 +15,7 @@ export default function Profile(params: { profile: object; idType: number; sessi
     return (
       <div className="flex min-h-[70vh] flex-col items-center  p-0  ">
        
+            this page is for top topics: its under construction.. 
               
       </div>
     )
@@ -25,24 +23,14 @@ export default function Profile(params: { profile: object; idType: number; sessi
 
 
 export async function getServerSideProps(context: any) {
-
-
-    const prisma = new PrismaClient();
-    //console.log(context.query.id);
-    const idType = context.query.type
-    if (!context.query?.id) {
-      return {
-        props: {
-          
-        }
-      }
-    }
-    const profile = await prisma.profile.findUnique({ where: { id: context.query?.id } });
-    //console.log(profile);
-    return {
-      props: {
-            profile,
-            idType
-      },
-    }
+ 
+  const session = await getSession(context);
+ // const posts = await allFeed.GET_POST(0)
+  
+  //console.log(session, profile);
+  return {
+    props: {
+      session:session?session:null,
+    },
   }
+}

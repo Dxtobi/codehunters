@@ -4,8 +4,6 @@ nextAuth
 declare global {
 
     interface User {
-       
-       
         email: string,
         name: string,
         image: string,

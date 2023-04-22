@@ -1,28 +1,25 @@
 
 import { useRouter } from "next/router"
 import { AiFillGithub, AiFillHeart, AiOutlineComment } from "react-icons/ai";
-import { BiComment } from "react-icons/bi";
 import Link from "next/link";
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } from "react";
 import Moment from 'react-moment';
 
 import SyntexHilight from "../cards/SyntexHylighter";
 import ReactMarkdown from 'react-markdown'
+import { BiTrash } from "react-icons/bi";
 
 const active = "w-[40px] h-[40px] rounded-full bg-slate-300 object-cover";
 const normal = "w-[50px] h-[50px] rounded-full object-cover bg-slate-300";
-export default function PostContainer(params: { data: any; }) {
+export default function PostContainer(params: { data: any; deletePost:any, session:any }) {
 
-    const { data } = params
+    const { data, deletePost, session } = params
 
     const router = useRouter()
 
     //console.log("data::", data)
     return (
-        <div className={` w-full ${data?.closed ? "bg-[#30343a] " : "bg-[#ffffff] box-shadow"} ${!data?.closed ? "text-[#30343a]" : "text-[#ffffff]"} mb-3 p-2 rounded-lg`}>
-            {
-                //header
-            }
+        <div className={` w-full ${data?.responses?.length >= 20  ? "bg-[#081833] " : "bg-[#ffffff] box-shadow"} ${data?.responses?.length >= 20 ? "text-[#ffffff]":"text-[#30343a]" } mb-3 p-2 rounded-lg`}>
             <div className="flex justify-between items-center">
                 <div className="flex gap-3 items-center">
                     <div className={data?.user?.top ? "w-[50px] h-[50px] p-2 rounded-full border border-[#25bd5f] flex justify-center items-center" : normal} >
@@ -36,10 +33,11 @@ export default function PostContainer(params: { data: any; }) {
                     </div>
                 </div>
                 <div>
+                    {data?.user?.id === session?.user.id ? <button onClick={()=>deletePost(data.id)}><BiTrash /></button>:
                     <Link href={data.link} className="flex justify-start gap-1 items-center w-full rounded-full text-green-800 my-1">
                         <AiFillGithub size={30} />
-
                     </Link>
+}
                 </div>
             </div>
             {

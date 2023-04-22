@@ -21,7 +21,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
             return res.status(401).json({message:'not login'})
         }
         const sessionUser = session?.user as User;
-        console.log(req.body)
+        //console.log(req.body)
         const post = await prisma.post.create({
             data: {
                 title,

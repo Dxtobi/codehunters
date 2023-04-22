@@ -26,4 +26,14 @@ export async function elementToPNG(element: HTMLElement): Promise<void> {
       console.error('Failed to download image:', error);
       throw error;
     }
+}
+  
+
+
+export function removeObjectById(array: any[], id: string) {
+  const index = array.findIndex((obj) => obj.id === id); // Find the index of the object with the matching ID
+  if (index > -1) { // If an object with the matching ID was found
+    array.splice(index, 1); // Remove the object from the array
   }
+  return array; // Return the new array
+}

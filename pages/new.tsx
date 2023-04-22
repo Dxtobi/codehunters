@@ -5,8 +5,9 @@ import {useRouter} from "next/router"
 import { BiSend } from "react-icons/bi";
 import { useState } from "react";
 import { AiFillDelete, AiOutlineDelete } from "react-icons/ai";
-import Loading from "../components/LoadingItem";
+
 import { CL_allFeed } from "../client_helpers";
+import Loading from "../components/Loading/LoadingItem";
 
 export default function NewPost(params: { user: any; }) {
 
