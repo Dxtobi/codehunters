@@ -22,7 +22,7 @@ const Home = (params: { session: any; profile: any; posts: any; }) => {
 
   const {session, profile, posts} = params
 
-  console.log(params);
+ 
   const [auth, setAuth] = useState(false);
 
   const cancel = () => {

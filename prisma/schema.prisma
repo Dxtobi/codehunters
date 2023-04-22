@@ -80,6 +80,7 @@ model Post {
   link       String?
   points     String?
   code       String?
+  
   image      String?
   responses  Response[]
   created_at String
