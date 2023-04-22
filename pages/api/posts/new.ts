@@ -14,7 +14,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
             image,
             link,
             tags,
-            codes
+            codes_
         } = req.body
         const session = await getSession({ req });
         if (!session) {
@@ -24,12 +24,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse) {
         console.log(req.body)
         const post = await prisma.post.create({
             data: {
-                title,
-                message,
-                image,
-                link,
-                codes_:codes,
-                tags,
+                ...req.body,
                 created_at: `${Date.now()}`,
                 points:points,
                 user: {connect: {id: sessionUser?.id}}
