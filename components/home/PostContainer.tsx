@@ -49,8 +49,8 @@ export default function PostContainer(params: { data: any; }) {
                 <div className={`font-extrabold text-lg   ${!data.closed ? "text-[#30343a]" : "text-[#25bd5f]"}`} >{data.title}</div>
                 <div className="mb-4" ><ReactMarkdown children={data?.message} /></div>
                 {
-                   data.code &&  (<div>
-                    <SyntexHilight code={data.code} />
+                   data.codes_ &&  (<div>
+                    <SyntexHilight code={data.codes_} />
                 </div>)
                }
                 <div className="flex gap-2">
