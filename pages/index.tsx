@@ -50,17 +50,14 @@ const Home = (params: { session: any; profile: any; posts: any[]; }) => {
     setLoadingd(false)
   }
 
-
-
-
   return (
-    <div className="flex min-h-[70vh] flex-col items-center     ">
+    <div className="flex min-h-[70vh] flex-col items-center ">
       {
         loading && <Loading />
       }
       {
         loadingd && <Loadingd />
-     }
+      }
      {!session && (
         <>
           <button onClick={cancel} className=' bg-gray-800 text-white w-full p-3 my-6 rounded-xl '>

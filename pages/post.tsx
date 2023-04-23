@@ -62,9 +62,11 @@ export default function Post(params: { post: any; session: any }) {
     }
 
     const sendComment = async () => {
+
         if (comment.trim().length < 1) {
             return
         }
+        
         setLoading(true)
         try {
             const res = await CL_allFeed.POST_COMMENT(post.id, comment)
