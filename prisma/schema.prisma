@@ -3,7 +3,6 @@
 
 generator client {
   provider = "prisma-client-js"
- 
 }
 
 datasource db {
@@ -39,22 +38,25 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
   username      String?    @unique
   name          String
-  email         String    @unique
+  email         String     @unique
   password      String?
   emailVerified DateTime?
   image         String?
-  occupation String  @default("")
-  bio        String?
-  twitter    String?
-  github    String?
+  occupation    String     @default("")
+  bio           String?
+  twitter       String?
+  github        String?
   accounts      Account[]
   sessions      Session[]
+  message       Message[]
   profile       Profile?
   Posts         Post[]
   response      Response[]
+  forumid       String     @unique @db.ObjectId
+  forum         Forum      @relation(fields: [forumid], references: [id])
 }
 
 model VerificationToken {
@@ -77,19 +79,36 @@ model Profile {
   user       User    @relation(fields: [userId], references: [id])
 }
 
+model Forum {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  topics String[]
+  userId String @unique @db.ObjectId
+
+  members  User[]
+  messages Message[]
+}
+
+model Message {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique @db.ObjectId
+  forumId String @db.ObjectId
+  topic   String
+  forum  Forum  @relation(fields: [forumId], references: [id])
+  User    User   @relation(fields: [userId], references: [id])
+}
+
 model Post {
-  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
   title      String
   message    String
   link       String?
   points     String?
-  codes_       String?
-
+  codes_     String?
   image      String?
   responses  Response[]
   created_at String
-  userId     String @unique @db.ObjectId
-  user       User   @relation(fields: [userId], references: [id])
+  userId     String     @unique @db.ObjectId
+  user       User       @relation(fields: [userId], references: [id])
   saved      String[]
   tags       String[]
 }
@@ -105,8 +124,7 @@ model Response {
 }
 
 model Tags {
-  id         String @id @default(auto()) @map("_id") @db.ObjectId
-  name       String
-  related    Int
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  related Int
 }
-

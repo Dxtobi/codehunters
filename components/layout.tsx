@@ -14,7 +14,7 @@ export const metadata = {
 export default function Layout(params: { [x: string]: any; children: any }) {
 
   const { children, ...others } = params
-  const nonPaths = ['/post', '/search', '/new']
+  const nonPaths = [ '/search', '/new']
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   useEffect(()=>{
@@ -60,7 +60,7 @@ export default function Layout(params: { [x: string]: any; children: any }) {
       
       {loading && <Loading />}
 
-      <main className='w-full md:w-[60%] lg:w-[50%] m-auto mt-16 p-2 '>{children}</main>
+      <main className='w-full md:w-[60%] lg:w-[50%] m-auto mt-20 p-2 '>{children}</main>
 
       {!isInPath && <OverNav />}
       

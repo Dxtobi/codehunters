@@ -25,9 +25,9 @@ export default function Navbar(params: { [x: string]: any; }) {
             <link rel="icon" href="/favicon.ico" />
             </Head>
             
-            <div className='z-50 flex items-center justify-between p-5 fixed top-0 right-0 w-full box-shadow  header_div'>
-                <Link href='/' className='brand text-gray-600'>
-                    <span className='text-gray-400'>code</span>mongers<span className='text-gray-400'>.io</span>
+            <div className='z-50 flex items-center justify-between p-5 fixed top-0 right-0 w-full box-shadow  header_div '>
+                <Link href='/' className='brand text-white bg-black p-2 rounded-lg'>
+                    <span className='text-[#fffc31]'>JS</span>town
                 </Link>
           <Link href='/search'>
             <AiOutlineSearch size={25}/>
