@@ -3,6 +3,25 @@
 @tailwind utilities;
 
 
+
+
+h5,h6{
+  font-size: large;
+}
+h3,h4{
+  font-size: x-large;
+}
+h1,h2{
+  font-size: xx-large;
+}
+a{
+  color: green;
+}
+p{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
 body{
     background: #f1f5f9;
 }

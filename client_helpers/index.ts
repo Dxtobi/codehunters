@@ -1,6 +1,7 @@
 
 
 import { feedFunc } from "./FeedFuncCl"
+import { forumFunc } from "./forum"
 
 export const CL_allFeed = {
     //POST func
@@ -18,6 +19,14 @@ export const CL_allFeed = {
     //GET_MORE_POST
     GET_MORE_POST: (skip: any) => feedFunc.getMorePosts(skip),
 }
+
+export const CL_forumFunc = {
+    //POST func
+    CREATE_FORUM: (value: any) => forumFunc.createNewForum(value)
+
+
+}
+
 
 export const CL_allUserFunc = {
    

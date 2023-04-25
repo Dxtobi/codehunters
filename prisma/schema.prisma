@@ -55,8 +55,8 @@ model User {
   profile       Profile?
   Posts         Post[]
   response      Response[]
-  forumid       String     @unique @db.ObjectId
-  forum         Forum      @relation(fields: [forumid], references: [id])
+  forumid       String?     @unique @db.ObjectId
+  forum         Forum ?     @relation(fields: [forumid], references: [id])
 }
 
 model VerificationToken {
@@ -82,8 +82,9 @@ model Profile {
 model Forum {
   id     String @id @default(auto()) @map("_id") @db.ObjectId
   topics String[]
+  corrent_topic String?
+  name String
   userId String @unique @db.ObjectId
-
   members  User[]
   messages Message[]
 }
