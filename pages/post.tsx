@@ -26,7 +26,7 @@ export default function Post(params: { post: any; session: any }) {
     const [inputMenu, setInputMenu] = useState(false)
     const [loading, setLoading] = useState(false)
     const [loadingd, setLoadingd] = useState(false)
-    const [comments, setComments] = useState(post?.responses ?? [])
+    const [comments, setComments] = useState(post?.responses.reverse() ?? [])
 
 
     useEffect(() => {
@@ -109,7 +109,7 @@ export default function Post(params: { post: any; session: any }) {
             }
             <div>
                 {
-                    comments && comments.reverse().map((e: any, i: Key | null | undefined) => (
+                    comments && comments.map((e: any, i: Key | null | undefined) => (
                         <Comment data={e} key={i} deleteFunc={deleteFunc} session={session} />
                     ))
                 }
