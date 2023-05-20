@@ -1,5 +1,5 @@
 import { Server } from "socket.io";
-import type { NextApiRequest, NextApiResponse } from "next";
+//import type { NextApiRequest, NextApiResponse } from "next";
 
 
 export default function SocketHandler(req: any, res: any) {
@@ -10,7 +10,10 @@ export default function SocketHandler(req: any, res: any) {
     return;
   }
 
-  const io = new Server(res.socket.server);
+  const io = new Server(res.socket.server, {
+    path: "/api/socket",
+    addTrailingSlash: false
+  });
   res.socket.server.io = io;
 
   const onConnection = (socket: any) => {

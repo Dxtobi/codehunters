@@ -2,7 +2,7 @@
 import { getSession } from 'next-auth/react';
 import { NextApiRequest, NextApiResponse } from 'next/types';
 import { prismaInstance } from '../../lib/helpers/prismainit';
-
+//
 const prisma = prismaInstance
 
 export default async function (req:NextApiRequest, res:NextApiResponse) {

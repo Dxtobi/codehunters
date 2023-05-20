@@ -49,7 +49,7 @@ export default function Post(params: { post: any; session: any }) {
             // console.log(c.length)
             setLoading(false)
             setComments(c);
-            //console.log(c)
+            console.log(c)
         });
 
         return
@@ -109,7 +109,7 @@ export default function Post(params: { post: any; session: any }) {
                     ))
                 }
             </div>
-            {inputMenu ? <div className="  fixed rounded-xl bottom-2 w-[90%] bg-[#000000a0] p-1  mx-auto left-1 ">
+            {inputMenu ? <div className=" z-50 fixed rounded-xl bottom-2 w-[98%] bg-[#000000a0] p-1  mx-auto left-1 ">
                 <div className=" relative">
                     <div className="header_div h-full absolute w-full -z-10"></div>
                     <textarea className={`w-full h-20 outline-none bg-transparent p-1 text-white`} value={comment} onChange={(e) => setComment(e.target.value)} />
@@ -118,7 +118,7 @@ export default function Post(params: { post: any; session: any }) {
                         <button onClick={sendComment} className="bg-blue-400 p-2 rounded-xl px-5 text-white">Send</button>
                     </div>
                 </div>
-            </div> : <button className=" fixed h-[80px] rounded-full w-[80px] bg-[#000000a0] p-1 bottom-4 text-white flex justify-center items-center " onClick={cancelInput}><BiCommentAdd size={30} /></button>}
+            </div> : <button className="z- fixed h-[80px] rounded-full w-[80px] bg-[#000000a0] p-1 bottom-20 text-white flex justify-center items-center " onClick={cancelInput}><BiCommentAdd size={30} /></button>}
         </div>
     )
 }
