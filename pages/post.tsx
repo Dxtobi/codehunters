@@ -72,9 +72,14 @@ export default function Post(params: { post: any; session: any }) {
             const res = await CL_allFeed.POST_COMMENT(post.id, comment)
             res?.status == 200 && cancelInput()
 
-            socket.emit("createdMessage", res?.data)
+            let c = [res?.data, ...comments,]
+            // console.log(c.length)
+            setLoading(false)
+            setComments(c);
+           // socket.emit("createdMessage", res?.data)
         } catch (error) {
             console.log(error)
+            setLoading(false)
         }
         //console.log(res)
         //router.reload()
